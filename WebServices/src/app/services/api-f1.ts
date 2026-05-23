@@ -22,6 +22,6 @@ export class ApiF1 {
       })
     }
 
-    return this.http.get('https://f1-live-motorsport-data.p.rapidapi.com/races/2020',httpOptions);
+    return this.http.get('https://f1-live-motorsport-data.p.rapidapi.com/races/2024',httpOptions);
   }
 }
