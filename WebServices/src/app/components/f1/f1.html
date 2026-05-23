@@ -1,0 +1,32 @@
+<p>f1 works!</p>
+<button (click)="getApiF1()" class="btn btn-primary mb-3">get api</button>
+
+<section>
+  <div class="table-responsive" *ngIf="listaraces.results.length > 0">
+
+    <table class="table table-striped table-bordered align-middle">
+
+      <thead class="table-dark">
+        <tr>
+          <th>Race ID</th>
+          <th>Carrera (race)</th>
+          <th>Sesiones (seasons)</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let carrera of listaraces.results">
+          <td>
+            {{ carrera.race_id }}
+          </td>
+          <td>
+            <strong>{{ carrera.name}}</strong>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-outline-info">VER POSICIONES</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table> </div>
+</section>
