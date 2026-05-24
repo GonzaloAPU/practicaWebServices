@@ -1,1 +1,28 @@
-<p>imdb works!</p>
+<p class="fs-4 fw-bold text-dark mt-2">🎬 Top 100 Películas - IMDB</p>
+<button (click)="getApiImdb()" class="btn btn-primary mb-4 px-4 shadow-sm">Obtener Películas</button>
+
+<section>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col" *ngFor="let movie of listarmovies">
+      <div class="card h-100 shadow-sm border-0">
+
+        <img [src]="movie.image" class="card-img-top img-fluid p-2 rounded" style="max-height: 400px; object-fit: contain;" alt="{{ movie.title }}">
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold">
+            <span class="badge bg-warning text-dark me-2">#{{ movie.rank }}</span>
+            {{ movie.title }}
+          </h5>
+
+          <p class="card-text text-muted small flex-grow-1">
+            {{ movie.description }}
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

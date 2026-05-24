@@ -18,25 +18,11 @@ export class F1 {
 
   getApiF1() {
     this.apiF1.getRaces().subscribe((data) => {
-      console.log(data);
-
       this.listaraces=data;
       console.log(this.listaraces);
       this.cdr.detectChanges();
     });
   }
-  consultarPorAnio() {
-    this.listaraces
-  }
 
-
-
-    /*}
-
-  consultarCarrera(){
-    this.getApiF1()
-    this.listaraces
-
-  }*/
 }
 

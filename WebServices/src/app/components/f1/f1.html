@@ -1,16 +1,5 @@
 
 <button (click)="getApiF1()" class="btn btn-primary mb-3">get api</button>
-<div class="col-md-12 mb-3">
-        <label class="form-label fw-bold">Curso:</label>
-        <input
-          type="text"
-          name="Curso"
-          class="form-control"
-          required
-        >
-</div>
-<button (click)="consultarPorAnio()" class="btn btn-primary mb-3">ingresar año</button>
-
 <section>
   <div class="table-responsive" *ngIf="listaraces.results?.length > 0">
 

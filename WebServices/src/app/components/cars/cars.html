@@ -1,0 +1,29 @@
+<p>cars works!</p>
+<button (click)="getApiCars()" class="btn btn-primary mb-3">get api</button>
+
+<div class="container mt-4">
+  <div class="row g-3">
+    <div class="col-md-3 text-center card body g-3 " *ngFor="let marcas of listacars()">
+      <button (click)="seleccionarMarca(marcas.id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaModal">
+        <h1>{{ marcas.name }}</h1>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="ventanaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+          <div class="container mt-5" *ngIf="listmodels().length > 0">
+                  <h3 class="fw-bold text-primary mb-3">📋 Modelos Disponibles</h3>
+                  <div class="list-group">
+                    <div class="list-group-item list-group-item-action" *ngFor="let modelo of listmodels()">
+                      {{ modelo.name }}
+                    </div>
+                  </div>
+          </div>
+    </div>
+  </div>
+</div>
+
