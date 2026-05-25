@@ -1,0 +1,81 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card border-0 text-white shadow" style="background-color: #12416d;">
+
+        <div class="card-header border-bottom border-secondary text-center py-3">
+          <h2 class="h5 mb-0 fw-bold text-uppercase">Conversor De Divisas</h2>
+        </div>
+
+        <div class="card-body p-4">
+
+          <button type="button" (click)="getlistamonedas()" class="btn btn-sm btn-outline-light w-100 mb-4">
+            <i class="fa-solid fa-sync me-2"></i> Cargar Listado de Monedas
+          </button>
+
+          <form (ngSubmit)="getconvertirmonedas()">
+
+            <div class="mb-3">
+              <label for="cantidad" class="form-label small text-light opacity-75">Cantidad</label>
+              <input
+                type="number"
+                class="form-control text-end py-2"
+                id="cantidad"
+                placeholder="Cantidad"
+                name="cantidad"
+                required
+                min="1"
+                [ngModel]="cantidad()"
+                (ngModelChange)="cantidad.set($event)"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="origen" class="form-label small text-light opacity-75">De</label>
+              <select
+                class="form-select py-2"
+                id="origen"
+                name="monedaOrigen"
+                [ngModel]="monedaOrigen()"
+                (ngModelChange)="monedaOrigen.set($event)"
+              >
+                <option *ngFor="let moneda of listchanges() | keyvalue" [value]="moneda.key">
+                  {{ moneda.key }} - {{ moneda.value }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label for="destino" class="form-label small text-light opacity-75">A</label>
+              <select
+                class="form-select py-2"
+                id="destino"
+                name="monedaDestino"
+                [ngModel]="monedaDestino()"
+                (ngModelChange)="monedaDestino.set($event)"
+              >
+                <option *ngFor="let moneda of listchanges() | keyvalue" [value]="moneda.key">
+                  {{ moneda.key }} - {{ moneda.value }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-4" *ngIf="resultado() !== null">
+              <div class="bg-white text-dark p-3 rounded text-center fw-bold fs-5 shadow-sm">
+                {{ cantidad() }} {{ monedaOrigen() }} = {{ resultado() | number:'1.2-2' }} {{ monedaDestino() }}
+              </div>
+            </div>
+
+            <button type="submit" class="btn w-100 py-2 fw-bold text-dark shadow-sm" style="background-color: #f0a818;">
+              Convertir <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

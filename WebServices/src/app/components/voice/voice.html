@@ -1,0 +1,12 @@
+<form>
+  <div class="mb-3">
+    <label for="texto" class="form-label">Texto a convertir:</label>
+    <input type="text" name="texto" id="texto" class="form-control" [(ngModel)]="texto" required>
+
+    <button type="submit" class="btn btn-primary mt-2" (click)="convertirAudio()">Enviar</button>
+  </div>
+
+  <audio [src]="objetUrl" controls></audio>
+
+
+</form>

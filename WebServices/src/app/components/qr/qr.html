@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card shadow border-0 rounded-4 text-white" style="background-color: #1e1e2f;">
+        <div class="card-header bg-success bg-gradient text-center py-3">
+          <h2 class="h5 mb-0 fw-bold text-uppercase">🔲 Generador de Códigos QR</h2>
+        </div>
+
+        <div class="card-body p-4">
+
+          <form>
+            <div class="mb-3">
+              <label for="textoQr" class="form-label small opacity-75">Texto o URL para el QR:</label>
+              <textarea
+                id="textoQr"
+                name="textoQr"
+                class="form-control mb-3"
+                rows="2"
+                [(ngModel)]="textoQr"
+                placeholder="Escribí un link o un texto aquí..."
+                required
+              ></textarea>
+
+              <button type="button" class="btn btn-success w-100 fw-bold" (click)="generarQR()">
+                Generar Código QR
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-4 p-3 rounded-3 bg-white text-center shadow-sm" *ngIf="qrBase64 !== ''">
+            <p class="small fw-bold text-dark mb-3">Tu código QR en formato Base-64:</p>
+
+            <img [src]="qrBase64" alt="Código QR Generado" class="img-fluid border border-secondary p-2 rounded bg-white">
+
+            <div class="mt-2 text-muted small border-top pt-2" style="font-size: 10px; word-break: break-all;">
+              <strong>Src cargado como Base64 exitosamente.</strong>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
